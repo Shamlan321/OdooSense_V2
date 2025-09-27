@@ -1,0 +1,39 @@
+# AI/ML Libraries
+langchain>=0.1.0
+langgraph>=0.0.26
+google-genai>=0.3.0
+autogen>=0.2.0
+
+# Reporting and Visualization
+reportlab>=4.0.0
+plotly>=5.0.0
+kaleido>=0.2.0
+openpyxl>=3.1.0
+
+# Web Framework
+flask>=2.3.0
+flask-socketio>=5.3.0
+flask-restful>=0.3.10
+flask-cors>=4.0.0
+
+# Odoo Integration
+requests>=2.31.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+Pillow>=10.0.0
+PyMuPDF>=1.23.0
+python-dotenv>=1.0.0
+
+# CLI Interface
+click>=8.1.0
+rich>=13.0.0
+
+# Async Support
+aiohttp>=3.9.0
+aiofiles>=23.0.0
+
+# Utilities
+pydantic>=2.5.0
+typing-extensions>=4.8.0

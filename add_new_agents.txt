@@ -1,0 +1,387 @@
+""Finding Open invoices for a Customer"
+
+
+import xmlrpc.client    
+import json
+from google import genai
+from google.genai import types
+import os
+import mimetypes
+
+url   = "http://localhost:8069"
+db    = "op"
+user  = "admin"
+pwd   = "admin"
+
+common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+uid    = common.authenticate(db, user, pwd, {})
+
+# Initialize Gemini client for image processing
+client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+
+def process_image_with_gemini(image_path, record_type='expense'):
+    """Process image using Gemini Vision API and extract structured data"""
+    try:
+        with open(image_path, 'rb') as f:
+            image_bytes = f.read()
+
+        # Determine MIME type
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if not mime_type or not mime_type.startswith('image/'):
+            return {'error': 'Invalid image file type'}
+
+        prompt = f"""Extract structured data from this {record_type} document (receipt, bill, invoice, etc.) and return it as JSON.
+
+Please extract the following information if available:
+        - vendor/supplier name
+        - date
+        - total amount
+        - currency
+        - line items with descriptions and amounts
+        - tax information
+        - reference/invoice number
+
+Return the data in this JSON format:
+        {
+            "vendor_name": "string",
+            "date": "YYYY-MM-DD",
+            "total_amount": float,
+            "currency": "string",
+            "reference": "string",
+            "line_items": [
+                {
+                    "description": "string",
+                    "quantity": float,
+                    "unit_price": float,
+                    "total": float
+                }
+            ],
+            "tax_amount": float
+        }
+
+Only return valid JSON, no additional text."""
+
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=[
+                types.Part.from_bytes(
+                    data=image_bytes,
+                    mime_type=mime_type,
+                ),
+                prompt
+            ]
+        )
+
+        # Parse the JSON response
+        try:
+            extracted_data = json.loads(response.text)
+            return extracted_data
+        except json.JSONDecodeError:
+            # If response is not valid JSON, return raw text
+            return {'raw_response': response.text}
+
+    except Exception as e:
+        return {'error': str(e)}
+
+# Find the partner ID for "Azure Interior"
+partner_ids = models.execute_kw(db, uid, pwd, 'res.partner', 'search', [[('name', '=', 'Azure Interior')]])    
+
+if partner_ids:
+    partner_id = partner_ids[0]
+
+    # Search for open invoices for the partner
+    invoice_ids = models.execute_kw(db, uid, pwd, 'account.move', 'search', [
+        [
+            ('partner_id', '=', partner_id),
+            ('move_type', '=', 'out_invoice'),
+            ('payment_state', 'in', ['not_paid', 'partial'])
+        ]
+    ])
+
+    if invoice_ids:
+        # Read the invoice data
+        invoices = models.execute_kw(db, uid, pwd, 'account.move', 'read', [invoice_ids], {
+            'fields': ['name', 'invoice_date', 'amount_total', 'currency_id', 'payment_state']
+        })
+
+        print("Open Invoices for Azure Interior:")
+        for invoice in invoices:
+            print(f"  Invoice Number: {invoice['name']}")
+            print(f"  Invoice Date: {invoice['invoice_date']}")
+            print(f"  Total Amount: {invoice['amount_total']} {invoice['currency_id'][1]}")
+            print(f"  Payment State: {invoice['payment_state']}")
+            print("-" * 30)
+    else:
+        print("No open invoices found for Azure Interior.")
+else:
+    print("Partner 'Azure Interior' not found.")
+
+
+
+
+
+""Finding Warehouses for a product"
+
+
+import xmlrpc.client
+import json
+from google import genai
+from google.genai import types
+import os
+import mimetypes
+
+url   = "http://localhost:8069"
+db    = "op"
+user  = "admin"
+pwd   = "admin"
+
+common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+uid    = common.authenticate(db, user, pwd, {})
+
+# Initialize Gemini client for image processing
+client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+
+def process_image_with_gemini(image_path, record_type='expense'):
+    """Process image using Gemini Vision API and extract structured data"""
+    try:
+        with open(image_path, 'rb') as f:
+            image_bytes = f.read()
+
+        # Determine MIME type
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if not mime_type or not mime_type.startswith('image/'):
+            return {'error': 'Invalid image file type'}
+
+        prompt = f"""Extract structured data from this {record_type} document (receipt, bill, invoice, etc.) and return it as JSON.
+
+Please extract the following information if available:
+        - vendor/supplier name
+        - date
+        - total amount
+        - currency
+        - line items with descriptions and amounts
+        - tax information
+        - reference/invoice number
+
+Return the data in this JSON format:
+        {
+            "vendor_name": "string",
+            "date": "YYYY-MM-DD",
+            "total_amount": float,
+            "currency": "string",
+            "reference": "string",
+            "line_items": [
+                {
+                    "description": "string",
+                    "quantity": float,
+                    "unit_price": float,
+                    "total": float
+                }
+            ],
+            "tax_amount": float
+        }
+
+Only return valid JSON, no additional text."""
+
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=[
+                types.Part.from_bytes(
+                    data=image_bytes,
+                    mime_type=mime_type,
+                ),
+                prompt
+            ]
+        )
+
+        # Parse the JSON response
+        try:
+            extracted_data = json.loads(response.text)
+            return extracted_data
+        except json.JSONDecodeError:
+            # If response is not valid JSON, return raw text
+            return {'raw_response': response.text}
+
+    except Exception as e:
+        return {'error': str(e)}
+
+# Find the product ID for "Cable Management Box"
+product_ids = models.execute_kw(db, uid, pwd, 'product.product', 'search', [[('name', '=', 'Cable Management Box')]])
+
+if product_ids:
+    product_id = product_ids[0]
+
+    # Find the stock quant records for the product
+    quant_ids = models.execute_kw(db, uid, pwd, 'stock.quant', 'search', [[('product_id', '=', product_id)]])  
+
+    if quant_ids:
+        # Read the quant data, including the warehouse
+        quants = models.execute_kw(db, uid, pwd, 'stock.quant', 'read', [quant_ids], {'fields': ['location_id']})
+
+        # Extract the warehouse IDs from the locations
+        warehouse_ids = []
+        for quant in quants:
+            location_id = quant['location_id'][0]
+            # Get the warehouse for the location
+            location = models.execute_kw(db, uid, pwd, 'stock.location', 'read', [location_id], {'fields': ['warehouse_id']})
+            if location and location[0]['warehouse_id']:
+                warehouse_id = location[0]['warehouse_id'][0]
+                if warehouse_id not in warehouse_ids:
+                    warehouse_ids.append(warehouse_id)
+
+        if warehouse_ids:
+            # Read the warehouse data
+            warehouses = models.execute_kw(db, uid, pwd, 'stock.warehouse', 'read', [warehouse_ids], {'fields': ['name']})
+
+            print("Warehouses for Cable Management Box:")
+            for warehouse in warehouses:
+                print(f"  - {warehouse['name']}")
+        else:
+            print("Cable Management Box is not available in any warehouse.")
+    else:
+        print("No stock quant records found for Cable Management Box.")
+else:
+    print("Product 'Cable Management Box' not found.")
+
+
+
+"Add into  Stock of a product in a specific warehouse"
+import xmlrpc.client
+import json
+from google import genai
+from google.genai import types
+import os
+import mimetypes
+
+url   = "http://localhost:8069"
+db    = "op"
+user  = "admin"
+pwd   = "admin"
+
+common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+uid    = common.authenticate(db, user, pwd, {})
+
+# Initialize Gemini client for image processing
+client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+
+def process_image_with_gemini(image_path, record_type='expense'):
+    """Process image using Gemini Vision API and extract structured data"""
+    try:
+        with open(image_path, 'rb') as f:
+            image_bytes = f.read()
+
+        # Determine MIME type
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if not mime_type or not mime_type.startswith('image/'):
+            return {'error': 'Invalid image file type'}
+
+        prompt = f"""Extract structured data from this {record_type} document (receipt, bill, invoice, etc.) and return it as JSON.
+
+Please extract the following information if available:
+        - vendor/supplier name
+        - date
+        - total amount
+        - currency
+        - line items with descriptions and amounts
+        - tax information
+        - reference/invoice number
+
+Return the data in this JSON format:
+        {
+            "vendor_name": "string",
+            "date": "YYYY-MM-DD",
+            "total_amount": float,
+            "currency": "string",
+            "reference": "string",
+            "line_items": [
+                {
+                    "description": "string",
+                    "quantity": float,
+                    "unit_price": float,
+                    "total": float
+                }
+            ],
+            "tax_amount": float
+        }
+
+Only return valid JSON, no additional text."""
+
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=[
+                types.Part.from_bytes(
+                    data=image_bytes,
+                    mime_type=mime_type,
+                ),
+                prompt
+            ]
+        )
+
+        # Parse the JSON response
+        try:
+            extracted_data = json.loads(response.text)
+            return extracted_data
+        except json.JSONDecodeError:
+            # If response is not valid JSON, return raw text
+            return {'raw_response': response.text}
+
+    except Exception as e:
+        return {'error': str(e)}
+
+# Find the product ID for "Cable Management Box"
+product_ids = models.execute_kw(db, uid, pwd, 'product.product', 'search', [[('name', '=', 'Cable Management Box')]])
+
+if product_ids:
+    product_id = product_ids[0]
+
+    # Find the warehouse ID for "YourCompany"
+    warehouse_ids = models.execute_kw(db, uid, pwd, 'stock.warehouse', 'search', [[('name', '=', 'YourCompany')]])
+
+    if warehouse_ids:
+        warehouse_id = warehouse_ids[0]
+
+        # Find the stock location ID for the warehouse
+        location_ids = models.execute_kw(db, uid, pwd, 'stock.location', 'search', [[('warehouse_id', '=', warehouse_id), ('usage', '=', 'internal')]])
+
+        if location_ids:
+            location_id = location_ids[0]
+
+            # Find the existing stock quant record for the product and location
+            quant_ids = models.execute_kw(db, uid, pwd, 'stock.quant', 'search', [[('product_id', '=', product_id), ('location_id', '=', location_id)]])
+
+            if quant_ids:
+                quant_id = quant_ids[0]
+
+                # Read the current quantity
+                quant = models.execute_kw(db, uid, pwd, 'stock.quant', 'read', [quant_id], {'fields': ['quantity']})
+                current_quantity = quant[0]['quantity']
+
+                # Calculate the new quantity
+                new_quantity = current_quantity + 20.0
+
+                # Update the quantity in the stock quant record
+                models.execute_kw(db, uid, pwd, 'stock.quant', 'write', [[quant_id], {'quantity': new_quantity}])
+
+                print(f"Successfully added 20 units to the stock of 'Cable Management Box' in 'YourCompany'. New quantity: {new_quantity}. Quant ID: {quant_id}")
+            else:
+                # Create a new stock quant record if one doesn't exist
+                quant_vals = {
+                    'product_id': product_id,
+                    'location_id': location_id,
+                    'quantity': 20.0,
+                }
+                quant_id = models.execute_kw(db, uid, pwd, 'stock.quant', 'create', [quant_vals])        
+                print(f"Successfully created a stock quant record for 'Cable Management Box' in 'YourCompany' with 20 units. Quant ID: {quant_id}")
+
+        else:
+            print("Could not find an internal stock location for 'YourCompany' warehouse.")
+    else:
+        print("Warehouse 'YourCompany' not found.")
+else:
+    print("Product 'Cable Management Box' not found.")
+
+
+    

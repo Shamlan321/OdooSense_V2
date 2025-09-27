@@ -1,0 +1,100 @@
+/* Thinking animation styles */
+.thinking-dots {
+  display: inline-block;
+}
+
+.thinking-dots::after {
+  content: '';
+  animation: thinking 1.5s infinite;
+}
+
+@keyframes thinking {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+.thinking-bubble {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 15px 20px;
+  color: white;
+  animation: bubble-pulse 2s ease-in-out infinite;
+}
+
+.thinking-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #764ba2;
+}
+
+@keyframes bubble-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.processing-bars {
+  display: flex;
+  gap: 3px;
+  align-items: end;
+}
+
+.processing-bar {
+  width: 4px;
+  background: linear-gradient(to top, #3B82F6, #8B5CF6);
+  border-radius: 2px;
+  animation: bar-wave 1.5s ease-in-out infinite;
+}
+
+.processing-bar:nth-child(1) { height: 10px; animation-delay: 0s; }
+.processing-bar:nth-child(2) { height: 15px; animation-delay: 0.1s; }
+.processing-bar:nth-child(3) { height: 20px; animation-delay: 0.2s; }
+.processing-bar:nth-child(4) { height: 15px; animation-delay: 0.3s; }
+.processing-bar:nth-child(5) { height: 10px; animation-delay: 0.4s; }
+
+@keyframes bar-wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Custom slow spin animation */
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
