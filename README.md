@@ -18,87 +18,107 @@ OdooSense_V2 eliminates the complexity of traditional ERP interactions by provid
 ## 🔄 Project Workflow Diagram
 
 ```mermaid
-graph TD
-    A[👤 User Input] --> B{🎯 Enhanced Agent Router}
+flowchart TD
+    A[User Input] --> B{Enhanced Agent Router}
     
-    B -->|Intent: Data Operations| C[📊 Dynamic CRUD Agent]
-    B -->|Intent: Reports/Charts| D[📈 Dynamic Reporting Agent]
-    B -->|Intent: Navigation/Help| E[🧠 Main LangGraph Agent]
-    B -->|Intent: Documents| F[📄 Document Processing]
-    B -->|Intent: LinkedIn| G[🔗 LinkedIn Processing]
+    B -->|Data Operations| C[Dynamic CRUD Agent]
+    B -->|Reports & Charts| D[Dynamic Reporting Agent]
+    B -->|Navigation & Help| E[Main LangGraph Agent]
+    B -->|Document Processing| F[Document Processing Agent]
+    B -->|LinkedIn Data| G[LinkedIn Processing Agent]
     
-    C --> C1[🔍 Data Retrieval]
-    C --> C2[➕ Record Creation]
-    C --> C3[✏️ Data Updates]
-    C --> C4[📋 Complex Queries]
-    C1 --> H[💾 Odoo Database]
+    C --> C1[Data Retrieval]
+    C --> C2[Record Creation]
+    C --> C3[Data Updates]
+    C --> C4[Complex Queries]
+    
+    D --> D1[PDF Reports]
+    D --> D2[Interactive Charts]
+    D --> D3[Excel Exports]
+    D --> D4[CSV Exports]
+    
+    E --> E1[Navigation Guide]
+    E --> E2[Documentation RAG]
+    E --> E3[Quick Shortcuts]
+    E --> E4[Q&A Processing]
+    
+    F --> F1[Bill Processing]
+    F --> F2[Invoice Analysis]
+    F --> F3[Lead Generation]
+    
+    G --> G1[Profile Processing]
+    G --> G2[Lead Creation]
+    G --> G3[Company Analysis]
+    
+    C1 --> H[(Odoo Database)]
     C2 --> H
     C3 --> H
     C4 --> H
     
-    D --> D1[📊 PDF Reports]
-    D --> D2[📈 Interactive Charts]
-    D --> D3[📋 Excel Exports]
-    D --> D4[📉 CSV Data]
-    D1 --> I[📁 File Storage]
+    D1 --> I[(File Storage)]
     D2 --> I
     D3 --> I
     D4 --> I
     
-    E --> E1[🧭 Navigation Guide]
-    E --> E2[📚 Documentation RAG]
-    E --> E3[🔗 Quick Shortcuts]
-    E --> E4[💬 Q&A Processing]
-    E2 --> J[📖 Odoo Docs Database]
+    E2 --> J[(Odoo Documentation)]
     E3 --> H
     
-    F --> F1[📄 Bill Processing]
-    F --> F2[🧾 Invoice Analysis]
-    F --> F3[👤 Lead Generation]
     F1 --> H
     F2 --> H
     F3 --> H
     
-    G --> G1[👔 Profile Processing]
-    G --> G2[🎯 Lead Creation]
-    G --> G3[🏢 Company Analysis]
     G1 --> H
     G2 --> H
     G3 --> H
     
-    H --> K[🤖 Gemini AI Processing]
+    H --> K[Gemini AI Processing]
     J --> K
-    K --> L[📤 Formatted Response]
-    I --> L
-    L --> M[💬 User Interface]
+    I --> L[Response Formatter]
+    K --> L
+    L --> M[User Interface]
     
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e8
-    style E fill:#fff8e1
-    style F fill:#fce4ec
-    style G fill:#e3f2fd
-    style H fill:#ffebee
-    style J fill:#f1f8e9
-    style K fill:#fff9c4
-    style L fill:#e0f2f1
-    style M fill:#f3e5f5
+    classDef userNode fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef routerNode fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef agentNode fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef operationNode fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef dataNode fill:#ffebee,stroke:#d32f2f,stroke-width:2px
+    classDef aiNode fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    classDef responseNode fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    
+    class A userNode
+    class B routerNode
+    class C,D,E,F,G agentNode
+    class C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3,E4,F1,F2,F3,G1,G2,G3 operationNode
+    class H,I,J dataNode
+    class K aiNode
+    class L,M responseNode
 ```
 
 ### 🔍 Workflow Explanation
 
-1. **User Input** 👤: User sends a natural language query through the chat interface
-2. **Enhanced Agent Router** 🎯: Analyzes intent and routes to the appropriate specialized agent
-3. **Specialized Processing**: Each agent handles specific types of operations:
-   - **CRUD Agent**: Data operations and textual reports
-   - **Reporting Agent**: Visual reports and file exports
-   - **Main Agent**: Navigation, documentation, and complex workflows
-   - **Document Agent**: File processing and data extraction
-   - **LinkedIn Agent**: Social data processing
-4. **Data Sources**: Agents interact with Odoo database and documentation
-5. **AI Processing**: Gemini AI processes and generates intelligent responses
-6. **Response Delivery**: Formatted results returned to user interface
+1. **User Input**: User sends a natural language query through the chat interface
+2. **Enhanced Agent Router**: Analyzes intent and routes to the appropriate specialized agent
+3. **Specialized Agent Processing**: Each agent handles specific operations:
+   - **Dynamic CRUD Agent**: Data retrieval, record creation, updates, and complex queries
+   - **Dynamic Reporting Agent**: PDF reports, interactive charts, Excel/CSV exports
+   - **Main LangGraph Agent**: Navigation guidance, documentation RAG, shortcuts, Q&A
+   - **Document Processing Agent**: Bill processing, invoice analysis, lead generation
+   - **LinkedIn Processing Agent**: Profile processing, lead creation, company analysis
+4. **Data Layer Interaction**: 
+   - **Odoo Database**: Core ERP data storage and retrieval
+   - **File Storage**: Generated reports and exported files
+   - **Odoo Documentation**: Knowledge base for RAG functionality
+5. **AI Processing**: Gemini AI processes queries and generates intelligent responses
+6. **Response Formatting**: Results are formatted and delivered through the user interface
+
+### 🎨 Diagram Legend
+- **Blue**: User interaction layer
+- **Orange**: Routing and decision logic
+- **Purple**: AI agent services
+- **Green**: Specific operations and functions
+- **Red**: Data storage and databases
+- **Yellow**: AI processing engine
+- **Teal**: Response and interface layer
 
 ## 🤖 AI Agents Suite
 
