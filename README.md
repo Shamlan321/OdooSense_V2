@@ -1,4 +1,3 @@
-[======================================================================]
 # OdooSense V2
 
 **A Comprehensive Suite of AI Agents for Effortless Odoo Management**
@@ -87,7 +86,11 @@ flowchart TD
     class K aiNode
     class L,M responseNode
 ```
+### Quick Install
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh | bash
+```
 ### Workflow Explanation
 
 1. **User Input**: User sends a natural language query through the chat interface
@@ -296,7 +299,7 @@ Before installing OdooSense V2, ensure you have the following prerequisites:
 
 ### API Keys & Access
 - **Google Gemini API Key**: Required for AI functionality
-- **Odoo Instance**: Access to Odoo 15/16/17/18 with API enabled
+- **Odoo Instance**: Access to Odoo 18
 - **Apify API Key**: Optional, for enhanced LinkedIn data processing
 
 ### Network Requirements
@@ -308,7 +311,7 @@ Before installing OdooSense V2, ensure you have the following prerequisites:
 
 ### Option 1: Automated Installation (Recommended)
 
-The easiest way to install OdooSense V2 is using our automated installation script:
+The easiest way to install OdooSense V2 is using the automated installation script:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh | bash
@@ -320,8 +323,6 @@ This script will:
 - Set up the environment configuration
 - Configure Docker containers
 - Initialize the database and documentation system
-
-**Note**: The script requires sudo privileges for installing system dependencies.
 
 ### Option 2: Manual Installation from Source
 
