@@ -1,21 +1,15 @@
-# OdooSense_V2 🤖
+[======================================================================]
+# OdooSense V2
 
 **A Comprehensive Suite of AI Agents for Effortless Odoo Management**
 
-OdooSense_V2 is an advanced AI-powered platform that transforms how you interact with Odoo ERP systems. Built with cutting-edge LangChain and LangGraph technologies, it provides intelligent agents that understand natural language and execute complex Odoo operations seamlessly.
+OdooSense V2 is an advanced AI-powered platform that transforms how you interact with Odoo ERP systems. Built with cutting-edge LangChain and LangGraph technologies, it provides intelligent agents that understand natural language and execute complex Odoo operations seamlessly.
 
-## 🌟 Overview
+## Introduction
 
-OdooSense_V2 eliminates the complexity of traditional ERP interactions by providing conversational AI agents that can:
-- **Understand natural language queries** in plain English
-- **Execute complex Odoo operations** without technical knowledge
-- **Generate professional reports** in multiple formats (PDF, Excel, CSV)
-- **Create interactive visualizations** and charts
-- **Navigate Odoo modules** intelligently
-- **Process documents** and extract data automatically
-- **Manage CRUD operations** with conversational ease
+OdooSense V2 eliminates the complexity of traditional ERP interactions by providing conversational AI agents that can understand natural language queries in plain English, execute complex Odoo operations without technical knowledge, generate professional reports in multiple formats, create interactive visualizations, navigate Odoo modules intelligently, process documents and extract data automatically, and manage CRUD operations with conversational ease.
 
-## 🔄 Project Workflow Diagram
+### Project Workflow
 
 ```mermaid
 flowchart TD
@@ -94,7 +88,7 @@ flowchart TD
     class L,M responseNode
 ```
 
-### 🔍 Workflow Explanation
+### Workflow Explanation
 
 1. **User Input**: User sends a natural language query through the chat interface
 2. **Enhanced Agent Router**: Analyzes intent and routes to the appropriate specialized agent
@@ -111,18 +105,26 @@ flowchart TD
 5. **AI Processing**: Gemini AI processes queries and generates intelligent responses
 6. **Response Formatting**: Results are formatted and delivered through the user interface
 
-### 🎨 Diagram Legend
-- **Blue**: User interaction layer
-- **Orange**: Routing and decision logic
-- **Purple**: AI agent services
-- **Green**: Specific operations and functions
-- **Red**: Data storage and databases
-- **Yellow**: AI processing engine
-- **Teal**: Response and interface layer
+### Architecture
 
-## 🤖 AI Agents Suite
+#### Core Components
+- **LangGraph Agent**: Orchestrates the workflow with stateful nodes
+- **Gemini Integration**: Handles text generation and vision processing
+- **Odoo Client**: Manages ERP interactions via XML-RPC
+- **CLI Interface**: Rich terminal interface with Click and Rich
 
-### 1. **Enhanced Agent Router** 🎯
+#### Agent Workflow
+1. **Intent Classification**: Determines user intent and extracts entities
+2. **Document Processing**: Processes uploaded files with Gemini Vision
+3. **CRUD Operations**: Performs Odoo database operations
+4. **Q&A Navigation**: Handles questions and navigation requests
+5. **Response Generation**: Formulates final responses with context
+
+## Features
+
+### AI Agents Suite
+
+#### 1. Enhanced Agent Router
 *The intelligent traffic controller*
 
 **Purpose**: Routes user queries to the most appropriate specialized agent based on intent analysis.
@@ -136,9 +138,7 @@ flowchart TD
 
 **When it activates**: Every user interaction starts here for optimal routing.
 
----
-
-### 2. **Dynamic CRUD Agent** 📊
+#### 2. Dynamic CRUD Agent
 *Your data operations specialist*
 
 **Purpose**: Handles all data lookup, creation, reading, updating, and deletion operations in Odoo.
@@ -153,9 +153,7 @@ flowchart TD
 
 **Technologies**: LangChain agents with dynamic tool generation, Gemini AI integration
 
----
-
-### 3. **Dynamic Reporting Agent** 📈
+#### 3. Dynamic Reporting Agent
 *Your visualization and export expert*
 
 **Purpose**: Generates professional reports, charts, and exports data in various formats.
@@ -170,9 +168,7 @@ flowchart TD
 
 **Technologies**: ReportLab (PDF), Plotly (Charts), OpenPyXL (Excel), Pandas (Data processing)
 
----
-
-### 4. **Main LangGraph Agent** 🧠
+#### 4. Main LangGraph Agent
 *The core intelligence hub*
 
 **Purpose**: Handles navigation, documentation, Q&A, and complex multi-step workflows.
@@ -188,9 +184,7 @@ flowchart TD
 
 **Technologies**: LangGraph state machines, Multi-node processing, Advanced RAG on Odoo documentation
 
----
-
-### 5. **Document Processing Agent** 📄
+#### 5. Document Processing Agent
 *Your document intelligence specialist*
 
 **Purpose**: Extracts and processes data from various document types.
@@ -203,9 +197,7 @@ flowchart TD
 - **Multi-format Support**: PDF, images, text documents
 - **Automatic Classification**: Identify document types automatically
 
----
-
-### 6. **LinkedIn Processing Agent** 🔗
+#### 6. LinkedIn Processing Agent
 *Your social business intelligence*
 
 **Purpose**: Processes LinkedIn data and converts it into actionable Odoo records.
@@ -217,43 +209,283 @@ flowchart TD
 - **Relationship Mapping**: Identify business connections and opportunities
 - **Data Enrichment**: Enhance existing contacts with LinkedIn data
 
-## 🚀 Key Features
+### Key Features
 
-### **Documentation RAG Intelligence** 📚
+#### Documentation RAG Intelligence
 - **Official Odoo Documentation**: Powered by RAG (Retrieval Augmented Generation) on official Odoo docs
 - **How-to Query Resolution**: Instant answers to "How do I..." questions with step-by-step guidance
 - **Smart Shortcuts**: Direct links to relevant Odoo records, forms, and configuration pages
 - **Contextual Help**: Provides relevant documentation snippets based on your current workflow
 
-### **Intelligent Query Understanding**
+#### Intelligent Query Understanding
 - Natural language processing with context awareness
 - Intent classification and entity extraction
 - Multi-turn conversation support
 - Query disambiguation and clarification
 
-### **Multi-Format Output**
+#### Multi-Format Output
 - **PDF Reports**: Professional business reports with formatting
 - **Excel Files**: Structured data with charts and formatting
 - **CSV Exports**: Clean data for analysis and import
 - **Interactive Charts**: Web-based visualizations
 - **HTML Dashboards**: Multi-chart analytics views
 
-### **Seamless Odoo Integration**
+#### Seamless Odoo Integration
 - Real-time Odoo API connectivity
 - Session-based credential management
 - Multi-database support
 - Secure authentication handling
 
-### **Advanced Analytics**
+#### Advanced Analytics
 - Sales trend analysis
 - Revenue reporting
 - Customer insights
 - Performance metrics
 - Custom KPI tracking
 
-## 💬 Example Queries
+### Technology Stack
 
-### **Data Lookup & Analysis**
+#### AI & Machine Learning
+- **LangChain**: Agent orchestration and tool management
+- **LangGraph**: State-based conversation flows
+- **Google Gemini**: Large language model for natural language understanding
+- **RAG (Retrieval Augmented Generation)**: Enhanced knowledge retrieval
+
+#### Backend
+- **Python 3.8+**: Core application language
+- **Flask**: Web framework and API server
+- **SQLAlchemy**: Database ORM
+- **Pandas**: Data manipulation and analysis
+- **XMLRPClib**: Odoo API integration
+
+#### Frontend
+- **React**: Modern web interface
+- **Tailwind CSS**: Responsive styling
+- **Socket.IO**: Real-time communication
+- **Plotly.js**: Interactive charts and visualizations
+
+#### Data Processing & Export
+- **ReportLab**: PDF generation
+- **OpenPyXL**: Excel file creation
+- **Plotly**: Interactive visualizations
+- **Pandas**: Data analysis and transformation
+
+#### Infrastructure
+- **Docker**: Containerization support
+- **Redis**: Session and cache management
+- **PostgreSQL**: Database backend
+- **Nginx**: Reverse proxy and static file serving
+
+## Prerequisites
+
+Before installing OdooSense V2, ensure you have the following prerequisites:
+
+### System Requirements
+- **Operating System**: Linux (Ubuntu 18.04+, CentOS 7+, Debian 9+)
+- **Memory**: Minimum 4GB RAM (8GB recommended)
+- **Storage**: At least 10GB free disk space
+- **Network**: Internet connection for downloading dependencies and API access
+
+### Software Dependencies
+- **Python 3.8+**: Core runtime environment
+- **Node.js 16+**: For frontend components
+- **Docker & Docker Compose**: For containerized deployment
+- **Git**: For source code management
+- **PostgreSQL 12+**: Database backend (with pgvector extension)
+- **Redis**: Session and cache management (optional but recommended)
+
+### API Keys & Access
+- **Google Gemini API Key**: Required for AI functionality
+- **Odoo Instance**: Access to Odoo 15/16/17/18 with API enabled
+- **Apify API Key**: Optional, for enhanced LinkedIn data processing
+
+### Network Requirements
+- **Outbound Internet Access**: For API calls to Google Gemini
+- **Odoo API Access**: Network connectivity to your Odoo instance
+- **Port Availability**: Ports 3000 (frontend), 5000 (backend), 8000 (API), 8501 (documentation UI)
+
+## Installation
+
+### Option 1: Automated Installation (Recommended)
+
+The easiest way to install OdooSense V2 is using our automated installation script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh | bash
+```
+
+This script will:
+- Install all required dependencies (Python, Node.js, Docker)
+- Clone both the main application and documentation agent repositories
+- Set up the environment configuration
+- Configure Docker containers
+- Initialize the database and documentation system
+
+**Note**: The script requires sudo privileges for installing system dependencies.
+
+### Option 2: Manual Installation from Source
+
+#### Step 1: Install System Dependencies
+
+**For Ubuntu/Debian:**
+```bash
+# Update package list
+sudo apt-get update
+
+# Install Python and Node.js
+sudo apt-get install -y python3 python3-pip python3-venv nodejs npm git curl
+
+
+**For CentOS/RHEL:**
+```bash
+# Install Python and Node.js
+sudo yum install -y python3 python3-pip nodejs npm git curl
+
+
+
+#### Step 2: Clone the Main Application
+
+```bash
+# Create installation directory
+mkdir -p ~/odoosense
+cd ~/odoosense
+
+# Clone the main OdooSense V2 repository
+git clone https://github.com/Shamlan321/OdooSense_V2.git
+cd OdooSense_V2
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Install Node.js dependencies for frontend
+cd agent_frontend
+npm install
+cd ..
+```
+
+#### Step 3: Set Up Environment Configuration
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit the environment file with your settings
+nano .env
+```
+
+Configure the following variables in your `.env` file:
+```bash
+# API Keys
+GEMINI_API_KEY=your_google_gemini_api_key
+APIFY_API_KEY=your_apify_api_key_for_linkedin_lead_creation(optional)
+
+
+# Application Settings
+FLASK_ENV=production
+SECRET_KEY=your_secret_key
+```
+
+#### Step 4: Install Documentation Agent
+
+```bash
+# Navigate back to installation directory
+cd ~/odoosense
+
+# Clone the documentation agent repository
+git clone https://github.com/Shamlan321/odoo-exper-gemini.git
+cd odoo-exper-gemini
+
+# Copy environment template
+cp .env.example .env
+
+# Edit the environment file
+nano .env
+```
+
+Configure the documentation agent environment:
+```bash
+GOOGLE_API_KEY=your_google_api_key
+POSTGRES_USER=odoo_expert
+POSTGRES_PASSWORD=your_secure_password
+POSTGRES_DB=odoo_expert_db
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+LLM_MODEL=gemini-1.5-flash-latest
+BEARER_TOKEN=comma_separated_bearer_tokens
+CORS_ORIGINS=http://localhost:3000,http://localhost:8501,https://www.odoo.com
+ODOO_VERSIONS=18.0
+SYSTEM_PROMPT=same as .env.example
+RAW_DATA_DIR=raw_data
+MARKDOWN_DATA_DIR=markdown
+```
+
+#### Step 5: Start Documentation Agent Services
+
+```bash
+# Start Docker services for documentation agent
+docker-compose up -d
+
+# Pull Odoo documentation
+docker compose run --rm odoo-expert ./pull_rawdata.sh
+
+# Convert RST to Markdown
+docker compose run --rm odoo-expert python main.py process-raw
+
+# Process and embed documents
+docker compose run --rm odoo-expert python main.py process-docs
+```
+
+#### Step 6: Start Main Application
+
+```bash
+# Navigate to main application directory
+cd ~/odoosense/OdooSense_V2
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Start the backend server
+python flask_app.py &
+
+# Start the frontend (in a new terminal)
+cd agent_frontend
+npm start
+```
+
+
+
+### Post-Installation Setup
+
+1. **Access the Application**:
+   - Main Application: http://localhost:3000
+   - API Endpoint: http://localhost:8000
+   - Documentation Agent UI: http://localhost:8501
+
+2. **Verify Installation**:
+   ```bash
+   # Check if all services are running
+   docker-compose ps
+   
+   # Test API connectivity
+   curl http://localhost:8000/health
+   ```
+
+3. **Configure Odoo Connection**:
+   - Navigate to the settings page in the web interface
+   - Enter your Odoo instance details
+   - Test the connection
+
+## Screenshots
+
+*Screenshots will be added here to showcase the user interface and key features of OdooSense V2.*
+
+## Example Usage
+
+### Data Lookup & Analysis
 ```
 "How many sales orders do we have this month?"
 "Show me all customers from California"
@@ -263,7 +495,7 @@ flowchart TD
 "Show me employee headcount by department"
 ```
 
-### **Report Generation**
+### Report Generation
 ```
 "Generate a PDF sales report for Q3 2024"
 "Create an Excel sheet of all customers with their contact details"
@@ -272,7 +504,7 @@ flowchart TD
 "Create a customer analysis report"
 ```
 
-### **Data Visualization**
+### Data Visualization
 ```
 "Create a bar chart showing sales by month"
 "Generate a pie chart of revenue by product category"
@@ -281,7 +513,7 @@ flowchart TD
 "Plot monthly expenses as a bar graph"
 ```
 
-### **Record Management**
+### Record Management
 ```
 "Create a new lead for John Smith from ABC Corp"
 "Update customer XYZ's phone number to 555-1234"
@@ -290,7 +522,7 @@ flowchart TD
 "Register a new employee in the HR system"
 ```
 
-### **Navigation & Help**
+### Navigation & Help
 ```
 "How do I access the sales module?"
 "Take me to the customer management page"
@@ -299,7 +531,7 @@ flowchart TD
 "Help me navigate to the accounting dashboard"
 ```
 
-### **Documentation RAG Queries**
+### Documentation RAG Queries
 ```
 "How do I set up automated email campaigns in Odoo?"
 "What's the process for configuring multi-company accounting?"
@@ -311,12 +543,10 @@ flowchart TD
 "Show me how to configure automated invoicing"
 ```
 
-### **Document Processing**
-```
-Upload a Document, select from the menu what type of records you want to create and, the Agent will return Extracted data from the document. Press Add to Odoo.
-```
+### Document Processing
+Upload a document, select from the menu what type of records you want to create, and the Agent will return extracted data from the document. Press Add to Odoo.
 
-### **Advanced Analytics**
+### Advanced Analytics
 ```
 "Analyze our sales performance compared to last year"
 "Show me customer retention rates by region"
@@ -325,63 +555,23 @@ Upload a Document, select from the menu what type of records you want to create 
 "Compare monthly sales across different product lines"
 ```
 
-## 🛠️ Technology Stack
+## Contributing
 
-### **AI & Machine Learning**
-- **LangChain**: Agent orchestration and tool management
-- **LangGraph**: State-based conversation flows
-- **Google Gemini**: Large language model for natural language understanding
-- **RAG (Retrieval Augmented Generation)**: Enhanced knowledge retrieval
+We welcome contributions to OdooSense V2! Please read our contributing guidelines and submit pull requests to help improve the project.
 
-### **Backend**
-- **Python 3.8+**: Core application language
-- **Flask**: Web framework and API server
-- **SQLAlchemy**: Database ORM
-- **Pandas**: Data manipulation and analysis
-- **XMLRPClib**: Odoo API integration
+## License
 
-### **Frontend**
-- **React**: Modern web interface
-- **Tailwind CSS**: Responsive styling
-- **Socket.IO**: Real-time communication
-- **Plotly.js**: Interactive charts and visualizations
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-### **Data Processing & Export**
-- **ReportLab**: PDF generation
-- **OpenPyXL**: Excel file creation
-- **Plotly**: Interactive visualizations
-- **Pandas**: Data analysis and transformation
+## Support
 
-### **Infrastructure**
-- **Docker**: Containerization support
-- **Redis**: Session and cache management
-- **PostgreSQL**: Database backend
-- **Nginx**: Reverse proxy and static file serving
+For support and questions:
+- Create an issue on GitHub
+- Check the documentation
 
-## 📋 Prerequisites
+## Acknowledgments
 
-- **Python 3.8+**
-- **Node.js 16+** (for frontend)
-- **Odoo 15/16/17/18** instance with API access
-- **Google Gemini API key**
-- **Redis** (optional, for enhanced caching)
-
-
-
-
-
-## 🏗️ Architecture
-
-### Core Components
-- **LangGraph Agent**: Orchestrates the workflow with stateful nodes
-- **Gemini Integration**: Handles text generation and vision processing
-- **Odoo Client**: Manages ERP interactions via XML-RPC
-- **CLI Interface**: Rich terminal interface with Click and Rich
-
-### Agent Workflow
-1. **Intent Classification**: Determines user intent and extracts entities
-2. **Document Processing**: Processes uploaded files with Gemini Vision
-3. **CRUD Operations**: Performs Odoo database operations
-4. **Q&A Navigation**: Handles questions and navigation requests
-5. **Response Generation**: Formulates final responses with context
+- Built with LangChain and LangGraph
+- Powered by Google Gemini AI
+- Inspired by the Odoo community's needs for better ERP interaction
 
