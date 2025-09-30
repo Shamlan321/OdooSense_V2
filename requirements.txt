@@ -1,4 +1,7 @@
 # AI/ML Libraries
+ag2>=0.9.9
+google[ag2]
+langchain-google-genai>=2.1.12
 langchain>=0.1.0
 langgraph>=0.0.26
 google-genai>=0.3.0
