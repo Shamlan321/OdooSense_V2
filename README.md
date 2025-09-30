@@ -2,6 +2,57 @@
 
 **A Comprehensive Suite of AI Agents for Effortless Odoo Management**
 
+## 📋 Table of Contents
+
+### 🚀 Quick Start
+- [Quick Install](#quick-install)
+- [Introduction](#introduction)
+- [Project Workflow](#project-workflow)
+
+### 🏗️ Setup & Installation
+- [Prerequisites](#prerequisites)
+  - [System Requirements](#system-requirements)
+  - [Software Dependencies](#software-dependencies)
+  - [API Keys & Access](#api-keys--access)
+  - [Network Requirements](#network-requirements)
+- [Installation](#installation)
+  - [Automated Installation](#option-1-automated-installation-recommended)
+  - [Manual Installation](#option-2-manual-installation-from-source)
+- [Post-Installation Setup](#post-installation-setup)
+- [Network Access Configuration](#network-access-configuration)
+
+### 🤖 Features & Capabilities
+- [Features Overview](#features)
+- [AI Agents Suite](#ai-agents-suite)
+  - [Enhanced Agent Router](#1-enhanced-agent-router)
+  - [Dynamic CRUD Agent](#2-dynamic-crud-agent)
+  - [Dynamic Reporting Agent](#3-dynamic-reporting-agent)
+  - [Main LangGraph Agent](#4-main-langgraph-agent)
+  - [Document Processing Agent](#5-document-processing-agent)
+  - [LinkedIn Processing Agent](#6-linkedin-processing-agent)
+- [Key Features](#key-features)
+- [Technology Stack](#technology-stack)
+
+### 📖 Usage & Examples
+- [Example Usage](#example-usage)
+  - [Data Lookup & Analysis](#data-lookup--analysis)
+  - [Report Generation](#report-generation)
+  - [Data Visualization](#data-visualization)
+  - [Record Management](#record-management)
+  - [Navigation & Help](#navigation--help)
+  - [Documentation RAG Queries](#documentation-rag-queries)
+  - [Document Processing](#document-processing)
+  - [Advanced Analytics](#advanced-analytics)
+
+### 📚 Additional Resources
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+- [Acknowledgments](#acknowledgments)
+
+---
+
 OdooSense V2 is an advanced AI-powered platform that transforms how you interact with Odoo ERP systems. Built with cutting-edge LangChain and LangGraph technologies, it provides intelligent agents that understand natural language and execute complex Odoo operations seamlessly.
 
 ## Introduction
