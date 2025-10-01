@@ -141,7 +141,11 @@ flowchart TD
 ### Quick Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh | bash
+curl -O https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh
+
+chmod +x install-odoosense.sh
+
+./install-odoosense.sh
 ```
 ### Workflow Explanation
 
@@ -366,7 +370,11 @@ Before installing OdooSense V2, ensure you have the following prerequisites:
 The easiest way to install OdooSense V2 is using the automated installation script:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh | bash
+curl -O https://raw.githubusercontent.com/Shamlan321/OdooSense_V2/main/install-odoosense.sh
+
+chmod +x install-odoosense.sh
+
+./install-odoosense.sh
 ```
 
 This script will:
