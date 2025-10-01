@@ -223,20 +223,23 @@ class AgentService:
             logger.info(f"Processing streaming chat message for session {session_id}")
             
             # First yield session info
-            yield f"data: {{\"session_id\": \"{session_id}\", \"type\": \"session_start\"}}\n\n"
+            yield f"""data: {{"session_id": "{session_id}", "type": "session_start"}}\n\n"""
             
             # Process message with streaming
             for chunk in self.agent.process_message_stream(message, session_id, user_id):
-                yield f"data: {{\"content\": \"{chunk.replace('"', '\\"')}\", \"type\": \"content\"}}\n\n"
+                # Fixed escaping for inner quotes
+                yield f"""data: {{"content": "{chunk.replace('"', '\\"')}", "type": "content"}}\n\n"""
             
             # Signal completion
-            yield f"data: {{\"type\": \"done\"}}\n\n"
+            yield f"""data: {{"type": "done"}}\n\n"""
             
             logger.info(f"Streaming chat message processed successfully for session {session_id}")
             
         except Exception as e:
             logger.error(f"Streaming chat processing failed for session {session_id}: {str(e)}")
-            yield f"data: {{\"error\": \"{str(e).replace('"', '\\"')}\", \"type\": \"error\"}}\n\n"
+            # Fixed escaping for error message
+            yield f"""data: {{"error": "{str(e).replace('"', '\\"')}", "type": "error"}}\n\n"""
+
     
     def document_ingestion(self, file_data: bytes, filename: str, mime_type: str, 
                           session_id: str = None, user_id: int = None, 
