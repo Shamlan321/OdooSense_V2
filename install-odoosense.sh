@@ -298,11 +298,6 @@ setup_main_agent_env() {
     # Add RAG bearer token
     inject_env_vars "$env_file" "RAG_BEARER_TOKEN" "$bearer_token"
     
-    # Configure Flask for network access
-    inject_env_vars "$env_file" "FLASK_HOST" "0.0.0.0"
-    inject_env_vars "$env_file" "FLASK_PORT" "5000"
-    inject_env_vars "$env_file" "FLASK_DEBUG" "False"
-    
     print_status "Main agent environment configured"
 }
 
@@ -405,7 +400,7 @@ ensure_docker_permissions() {
     
     # Test Docker access again
     if docker version >/dev/null 2>&1; then
-        print_status "Docker permissions fixed successfully"
+        print_success "Docker permissions fixed successfully"
         return 0
     fi
     
@@ -649,7 +644,7 @@ main() {
                 ;;
             2)
                 install_rag="yes"
-                print_warning "Installing Documentation Assistant can take quite a bit of time (an Hour maybe)"
+                print_warning "Installing Documentation Assistant can take quite a bit of time (Hours maybe)"
                 echo ""
                 read -p "Do you want to proceed? (y/N): " proceed
                 if [[ $proceed =~ ^[Yy]$ ]]; then
