@@ -405,7 +405,7 @@ ensure_docker_permissions() {
     
     # Test Docker access again
     if docker version >/dev/null 2>&1; then
-        print_success "Docker permissions fixed successfully"
+        print_status "Docker permissions fixed successfully"
         return 0
     fi
     
