@@ -384,7 +384,7 @@ ensure_docker_permissions() {
         
         # Test if user can access Docker without sudo
         if docker version >/dev/null 2>&1; then
-            print_success "Docker permissions are correctly configured"
+            print_status "Docker permissions are correctly configured"
             return 0
         fi
     fi
