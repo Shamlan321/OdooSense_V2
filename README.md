@@ -488,7 +488,7 @@ MARKDOWN_DATA_DIR=markdown
 
 ```bash
 # Start Docker services for documentation agent
-docker-compose up -d
+docker compose up -d
 
 # Pull Odoo documentation
 docker compose run --rm odoo-expert ./pull_rawdata.sh
