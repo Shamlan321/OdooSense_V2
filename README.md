@@ -1,6 +1,7 @@
 # OdooSense V2
 
 **A Comprehensive Suite of AI Agents for Effortless Odoo Management**
+![Alt text](logo.png "Logo")
 
 ## 📋 Table of Contents
 
