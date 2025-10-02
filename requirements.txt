@@ -6,7 +6,7 @@ langchain>=0.1.0
 langgraph>=0.0.26
 google-genai>=0.3.0
 autogen>=0.2.0
-
+ag2[gemini]
 # Reporting and Visualization
 reportlab>=4.0.0
 plotly>=5.0.0
