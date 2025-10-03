@@ -202,7 +202,7 @@ if __name__ == '__main__':
     
     # Get configuration from environment
     host = os.getenv('FLASK_HOST', '0.0.0.0')
-    port = int(os.getenv('FLASK_PORT', 2222))
+    port = int(os.getenv('FLASK_PORT', 5000))
     debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
     
     print(f"Starting OdooSense Flask Backend...")
