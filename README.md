@@ -65,10 +65,10 @@ OdooSense V2 eliminates the complexity of traditional ERP interactions by provid
 
 **Try OdooSense_V2 live!** Experience the power of AI-driven Odoo management with our interactive demo.
 
-###  Demo Website
+####  Demo Website
 **Website**: [demo.odoosense.xyz](https://demo.odoosense.xyz)
 
-###  Test Credentials
+####  Test Credentials
 Use these credentials to explore the full functionality:
 
 - **Odoo URL**: `https://demoinstance.odoosense.xyz`
@@ -76,7 +76,7 @@ Use these credentials to explore the full functionality:
 - **Username**: `admin`
 - **Password**: `admin`
 
-###  What You Can Test
+####  What You Can Test
 - Ask natural language questions about your Odoo data
 - Generate professional PDF reports and interactive charts
 - Create and manage records through conversation
