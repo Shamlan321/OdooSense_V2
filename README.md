@@ -6,7 +6,7 @@
 ## 📋 Table of Contents
 
 ### 🚀 Quick Start
-- [Demo](#Demo)
+- [Demo](#-demo)
 - [Quick Install](#quick-install)
 - [Introduction](#introduction)
 - [Project Workflow](#project-workflow)
