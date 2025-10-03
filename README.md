@@ -147,6 +147,7 @@ chmod +x install-odoosense.sh
 
 ./install-odoosense.sh
 ```
+*Note:- To Install RAG Documentation Assistant Follow [RAG Install](#step-4-install-documentation-agent) Steps*
 ### Workflow Explanation
 
 1. **User Input**: User sends a natural language query through the chat interface
