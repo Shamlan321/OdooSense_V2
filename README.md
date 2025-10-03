@@ -6,6 +6,7 @@
 ## 📋 Table of Contents
 
 ### 🚀 Quick Start
+- [Demo](#Demo)
 - [Quick Install](#quick-install)
 - [Introduction](#introduction)
 - [Project Workflow](#project-workflow)
@@ -59,6 +60,31 @@ OdooSense V2 is an advanced AI-powered platform that transforms how you interact
 ## Introduction
 
 OdooSense V2 eliminates the complexity of traditional ERP interactions by providing conversational AI agents that can understand natural language queries in plain English, execute complex Odoo operations without technical knowledge, generate professional reports in multiple formats, create interactive visualizations, navigate Odoo modules intelligently, process documents and extract data automatically, and manage CRUD operations with conversational ease.
+
+## 🎯 Demo
+
+**Try OdooSense_V2 live!** Experience the power of AI-driven Odoo management with our interactive demo.
+
+###  Demo Website
+**Website**: [demo.odoosense.xyz](https://demo.odoosense.xyz)
+
+###  Test Credentials
+Use these credentials to explore the full functionality:
+
+- **Odoo URL**: `https://demoinstance.odoosense.xyz`
+- **Database**: `demo`
+- **Username**: `admin`
+- **Password**: `admin`
+
+###  What You Can Test
+- Ask natural language questions about your Odoo data
+- Generate professional PDF reports and interactive charts
+- Create and manage records through conversation
+- Process documents and extract business data
+- Navigate Odoo modules with AI assistance
+- Experience the power of Documentation RAG for instant help
+
+*Start by connecting to the demo Odoo instance using the credentials above, then try asking questions like "Show me all customers" or "Generate a sales report for this month".*
 
 ### Project Workflow
 
